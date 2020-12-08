@@ -7,9 +7,9 @@ public enum ModuleCategory
 {
     COMBAT("Combat"),
     MOVEMENT("Movement"),
-    MISC("Miscellaneous"),
-    RENDER("Visuals"),
-    EXPLOIT("Exploit"),
+    WORLD("World"),
+    RENDER("Render"),
+    MISC("Misc"),
     CLIENT("Client");
 
     private final String name;

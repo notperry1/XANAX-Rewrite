@@ -1,6 +1,7 @@
 package cat.yoink.xanax.internal.module;
 
 import cat.yoink.xanax.internal.module.impl.persistent.Binds;
+import cat.yoink.xanax.internal.module.impl.toggleable.GuiModule;
 import cat.yoink.xanax.internal.module.impl.toggleable.TestModule;
 import cat.yoink.xanax.internal.module.main.Module;
 import cat.yoink.xanax.internal.module.stage.StateModule;
@@ -33,7 +34,8 @@ public enum ModuleManager implements Configurable, Minecraft
     ModuleManager()
     {
         addModules(new Binds(),
-                new TestModule());
+                new TestModule(),
+                new GuiModule());
     }
 
     @Override
@@ -99,6 +101,11 @@ public enum ModuleManager implements Configurable, Minecraft
     public StateModule getStateModule(Class<? extends StateModule> name)
     {
         return modules.stream().filter(module -> module.getClass().equals(name)).findAny().orElse(null);
+    }
+
+    public Module getModule(Class<? extends Module> name)
+    {
+        return allModules.stream().filter(module -> module.getClass().equals(name)).findAny().orElse(null);
     }
 
     public List<StateModule> getModules()

@@ -30,6 +30,11 @@ public abstract class Module implements Minecraft, Nameable, IModule
         return setting;
     }
 
+    public final Setting<?> getSetting(String name)
+    {
+        return settings.stream().filter(setting -> setting.getName().equalsIgnoreCase(name)).findAny().orElse(null);
+    }
+
     @Override
     public final String getName()
     {
