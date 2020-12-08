@@ -1,8 +1,12 @@
 package cat.yoink.xanax.internal.module.main;
 
 import cat.yoink.xanax.internal.module.ModuleCategory;
+import cat.yoink.xanax.internal.setting.Setting;
 import cat.yoink.xanax.internal.traits.Minecraft;
 import cat.yoink.xanax.internal.traits.Nameable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Module implements Minecraft, Nameable, IModule
 {
@@ -10,39 +14,52 @@ public abstract class Module implements Minecraft, Nameable, IModule
     protected final ModuleCategory category = getClass().getAnnotation(ModuleData.class).category();
     protected final boolean hidden = getClass().getAnnotation(ModuleData.class).hidden();
     protected int bind = getClass().getAnnotation(ModuleData.class).defaultBind();
+    protected final List<Setting<?>> settings = new ArrayList<>();
 
     protected final boolean isSafe()
     {
         return mc.player != null && mc.world != null;
     }
 
+    protected final <T extends Setting<?>> T addSetting(T setting)
+    {
+        settings.add(setting);
+        return setting;
+    }
+
     @Override
-    public String getName()
+    public final String getName()
     {
         return name;
     }
 
     @Override
-    public ModuleCategory getCategory()
+    public final ModuleCategory getCategory()
     {
         return category;
     }
 
     @Override
-    public int getBind()
+    public final int getBind()
     {
         return bind;
     }
 
     @Override
-    public void setBind(int bind)
+    public final void setBind(int bind)
     {
         this.bind = bind;
     }
 
     @Override
-    public boolean isHidden()
+    public final boolean isHidden()
     {
         return hidden;
+    }
+
+    @Override
+    public final List<Setting<?>> getSettings()
+    {
+        return settings;
     }
 }
