@@ -5,7 +5,7 @@ import cat.yoink.xanax.internal.font.CFontRenderer;
 import cat.yoink.xanax.internal.module.ModuleCategory;
 import cat.yoink.xanax.internal.module.ModuleManager;
 import cat.yoink.xanax.internal.module.impl.toggleable.GuiModule;
-import cat.yoink.xanax.internal.module.stage.StateModule;
+import cat.yoink.xanax.internal.module.state.StateModule;
 import cat.yoink.xanax.internal.setting.types.ListSetting;
 import cat.yoink.xanax.internal.setting.types.StateSetting;
 import cat.yoink.xanax.internal.util.GuiUtil;

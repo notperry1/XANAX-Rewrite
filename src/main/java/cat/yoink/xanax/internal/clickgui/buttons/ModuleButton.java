@@ -8,7 +8,7 @@ import cat.yoink.xanax.internal.font.CFontRenderer;
 import cat.yoink.xanax.internal.module.ModuleManager;
 import cat.yoink.xanax.internal.module.impl.toggleable.GuiModule;
 import cat.yoink.xanax.internal.module.main.Module;
-import cat.yoink.xanax.internal.module.stage.StateModule;
+import cat.yoink.xanax.internal.module.state.StateModule;
 import cat.yoink.xanax.internal.setting.Setting;
 import cat.yoink.xanax.internal.setting.types.ListSetting;
 import cat.yoink.xanax.internal.setting.types.NumberSetting;

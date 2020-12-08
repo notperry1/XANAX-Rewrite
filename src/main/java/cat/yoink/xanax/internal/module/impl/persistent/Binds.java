@@ -4,7 +4,7 @@ import cat.yoink.xanax.internal.module.ModuleCategory;
 import cat.yoink.xanax.internal.module.ModuleManager;
 import cat.yoink.xanax.internal.module.main.Module;
 import cat.yoink.xanax.internal.module.main.ModuleData;
-import cat.yoink.xanax.internal.module.stage.StateModule;
+import cat.yoink.xanax.internal.module.state.StateModule;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
 import org.lwjgl.input.Keyboard;

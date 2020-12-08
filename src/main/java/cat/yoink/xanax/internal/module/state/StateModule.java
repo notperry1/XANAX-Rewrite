@@ -1,4 +1,4 @@
-package cat.yoink.xanax.internal.module.stage;
+package cat.yoink.xanax.internal.module.state;
 
 import cat.yoink.xanax.internal.module.main.Module;
 import cat.yoink.xanax.internal.module.main.ModuleData;

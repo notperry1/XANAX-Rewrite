@@ -2,7 +2,7 @@ package cat.yoink.xanax.internal.module.impl.toggleable;
 
 import cat.yoink.xanax.internal.module.ModuleCategory;
 import cat.yoink.xanax.internal.module.main.ModuleData;
-import cat.yoink.xanax.internal.module.stage.StateModule;
+import cat.yoink.xanax.internal.module.state.StateModule;
 import cat.yoink.xanax.internal.setting.types.StateSetting;
 import org.lwjgl.input.Keyboard;
 

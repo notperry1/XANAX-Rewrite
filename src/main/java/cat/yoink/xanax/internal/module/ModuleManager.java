@@ -5,7 +5,7 @@ import cat.yoink.xanax.internal.module.impl.persistent.Commands;
 import cat.yoink.xanax.internal.module.impl.toggleable.GuiModule;
 import cat.yoink.xanax.internal.module.impl.toggleable.TestModule;
 import cat.yoink.xanax.internal.module.main.Module;
-import cat.yoink.xanax.internal.module.stage.StateModule;
+import cat.yoink.xanax.internal.module.state.StateModule;
 import cat.yoink.xanax.internal.setting.types.ListSetting;
 import cat.yoink.xanax.internal.setting.types.NumberSetting;
 import cat.yoink.xanax.internal.setting.types.StateSetting;
