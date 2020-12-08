@@ -3,6 +3,9 @@ package cat.yoink.xanax.internal;
 import cat.yoink.xanax.internal.module.ModuleManager;
 import cat.yoink.xanax.internal.traits.Nameable;
 
+/**
+ * @author yoink
+ */
 public enum XANAX implements Nameable
 {
     INSTANCE;

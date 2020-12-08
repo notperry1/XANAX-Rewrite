@@ -6,11 +6,14 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+/**
+ * @author yoink
+ */
 @Mixin(Minecraft.class)
 public final class MinecraftPatch
 {
     @Inject(method = "run", at = @At("HEAD"))
-    public void run(CallbackInfo ci)
+    private void run(CallbackInfo ci)
     {
         System.out.println("Injected!");
     }

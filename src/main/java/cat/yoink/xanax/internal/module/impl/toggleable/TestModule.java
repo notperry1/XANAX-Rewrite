@@ -6,6 +6,9 @@ import cat.yoink.xanax.internal.module.stage.StateModule;
 import cat.yoink.xanax.internal.setting.types.StateSetting;
 import org.lwjgl.input.Keyboard;
 
+/**
+ * @author yoink
+ */
 @ModuleData(name = "Test", category = ModuleCategory.MISC, defaultBind = Keyboard.KEY_R)
 public final class TestModule extends StateModule
 {

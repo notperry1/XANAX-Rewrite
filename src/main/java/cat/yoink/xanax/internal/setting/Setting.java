@@ -4,6 +4,9 @@ import cat.yoink.xanax.internal.traits.Nameable;
 
 import java.util.function.Predicate;
 
+/**
+ * @author yoink
+ */
 public abstract class Setting<T> implements Nameable, ISetting<T>
 {
     private final String name;

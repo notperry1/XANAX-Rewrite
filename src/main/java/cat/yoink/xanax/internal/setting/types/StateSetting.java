@@ -4,6 +4,9 @@ import cat.yoink.xanax.internal.setting.Setting;
 
 import java.util.function.Predicate;
 
+/**
+ * @author yoink
+ */
 public final class StateSetting extends Setting<Boolean>
 {
     private boolean value;

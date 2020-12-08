@@ -1,5 +1,8 @@
 package cat.yoink.xanax.internal.module;
 
+/**
+ * @author yoink
+ */
 public enum ModuleCategory
 {
     COMBAT("Combat"),

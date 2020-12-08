@@ -10,6 +10,9 @@ import org.spongepowered.asm.mixin.Mixins;
 import javax.annotation.Nullable;
 import java.util.Map;
 
+/**
+ * @author yoink
+ */
 @Mod(modid = "xanax", name = "XANAX")
 public final class EntryPoint implements IFMLLoadingPlugin
 {

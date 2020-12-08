@@ -4,6 +4,9 @@ import cat.yoink.xanax.internal.module.main.Module;
 import cat.yoink.xanax.internal.module.main.ModuleData;
 import net.minecraftforge.common.MinecraftForge;
 
+/**
+ * @author yoink
+ */
 public abstract class StateModule extends Module
 {
     protected boolean enabled = getClass().getAnnotation(ModuleData.class).enabled();

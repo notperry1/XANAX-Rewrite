@@ -8,6 +8,9 @@ import cat.yoink.xanax.internal.traits.Nameable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author yoink
+ */
 public abstract class Module implements Minecraft, Nameable, IModule
 {
     protected final String name = getClass().getAnnotation(ModuleData.class).name();

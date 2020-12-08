@@ -5,6 +5,9 @@ import cat.yoink.xanax.internal.setting.Setting;
 
 import java.util.List;
 
+/**
+ * @author yoink
+ */
 public interface IModule
 {
     ModuleCategory getCategory();
