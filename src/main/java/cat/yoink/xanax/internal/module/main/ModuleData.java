@@ -1,0 +1,24 @@
+package cat.yoink.xanax.internal.module.main;
+
+import cat.yoink.xanax.internal.module.ModuleCategory;
+import org.lwjgl.input.Keyboard;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.TYPE)
+public @interface ModuleData
+{
+    String name();
+
+    ModuleCategory category();
+
+    int defaultBind() default Keyboard.KEY_NONE;
+
+    boolean hidden() default false;
+
+    boolean enabled() default false;
+}

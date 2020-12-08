@@ -1,5 +1,6 @@
 package cat.yoink.xanax.internal;
 
+import cat.yoink.xanax.internal.module.ModuleManager;
 import cat.yoink.xanax.internal.traits.Nameable;
 
 public enum XANAX implements Nameable
@@ -8,7 +9,8 @@ public enum XANAX implements Nameable
 
     public void initialize()
     {
-
+        ModuleManager instance = ModuleManager.INSTANCE;
+        // Needed to initialize. Will be removed later.
     }
 
     @Override
