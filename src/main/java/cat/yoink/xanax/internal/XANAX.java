@@ -4,7 +4,7 @@ public enum XANAX
 {
     INSTANCE;
 
-    public void start()
+    public void initialize()
     {
 
     }
