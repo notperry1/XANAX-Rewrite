@@ -1,19 +1,36 @@
 package cat.yoink.xanax.internal;
 
 import cat.yoink.xanax.internal.module.ModuleManager;
+import cat.yoink.xanax.internal.traits.Configurable;
 import cat.yoink.xanax.internal.traits.Nameable;
 
 /**
  * @author yoink
  */
-public enum XANAX implements Nameable
+public enum XANAX implements Configurable, Nameable
 {
     INSTANCE;
 
     public void initialize()
     {
-        ModuleManager instance = ModuleManager.INSTANCE;
-        // Needed to initialize. Will be removed later.
+        try { load(); } catch (Exception ignored) { }
+        Runtime.getRuntime().addShutdownHook(new Thread(this::save));
+    }
+
+    @Override
+    public void save()
+    {
+        if (!directory.exists() && !directory.mkdirs()) return;
+
+        ModuleManager.INSTANCE.save();
+    }
+
+    @Override
+    public void load()
+    {
+        if (!directory.exists() && !directory.mkdirs()) return;
+
+        ModuleManager.INSTANCE.load();
     }
 
     @Override
