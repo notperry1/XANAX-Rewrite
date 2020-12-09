@@ -11,7 +11,7 @@ import org.lwjgl.input.Keyboard;
 /**
  * @author yoink
  */
-@ModuleData(name = "ClickGUI", category = ModuleCategory.CLIENT, defaultBind = Keyboard.KEY_RSHIFT)
+@ModuleData(name = "ClickGUI", category = ModuleCategory.CLIENT, defaultBind = Keyboard.KEY_RSHIFT, description = "Toggle modules and settings in a gui")
 public final class GuiModule extends StateModule
 {
     {

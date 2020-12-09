@@ -22,7 +22,7 @@ import java.awt.*;
 /**
  * @author yoink
  */
-@ModuleData(name = "PacketMine", category = ModuleCategory.WORLD)
+@ModuleData(name = "PacketMine", category = ModuleCategory.WORLD, description = "Mine blocks with packets")
 public final class PacketMine extends StateModule
 {
     private final ListSetting render = addSetting(new ListSetting("Render", "Specific", "Off", "Full", "Specific"));
