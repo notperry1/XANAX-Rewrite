@@ -1,4 +1,4 @@
-package cat.yoink.xanax.internal.module.impl.toggleable;
+package cat.yoink.xanax.internal.module.impl.toggleable.client;
 
 import cat.yoink.xanax.internal.clickgui.ClickGUI;
 import cat.yoink.xanax.internal.module.ModuleCategory;

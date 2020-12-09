@@ -2,8 +2,7 @@ package cat.yoink.xanax.internal.module;
 
 import cat.yoink.xanax.internal.module.impl.persistent.Binds;
 import cat.yoink.xanax.internal.module.impl.persistent.Commands;
-import cat.yoink.xanax.internal.module.impl.toggleable.GuiModule;
-import cat.yoink.xanax.internal.module.impl.toggleable.TestModule;
+import cat.yoink.xanax.internal.module.impl.toggleable.client.GuiModule;
 import cat.yoink.xanax.internal.module.main.Module;
 import cat.yoink.xanax.internal.module.state.StateModule;
 import cat.yoink.xanax.internal.setting.types.ListSetting;
@@ -35,7 +34,6 @@ public enum ModuleManager implements Configurable, Minecraft
     ModuleManager()
     {
         addModules(new Binds(),
-                new TestModule(),
                 new GuiModule(),
                 new Commands());
     }

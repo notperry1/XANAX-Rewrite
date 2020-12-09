@@ -3,7 +3,7 @@ package cat.yoink.xanax.internal.clickgui.buttons.settings;
 import cat.yoink.xanax.internal.clickgui.buttons.SettingButton;
 import cat.yoink.xanax.internal.font.CFontRenderer;
 import cat.yoink.xanax.internal.module.ModuleManager;
-import cat.yoink.xanax.internal.module.impl.toggleable.GuiModule;
+import cat.yoink.xanax.internal.module.impl.toggleable.client.GuiModule;
 import cat.yoink.xanax.internal.module.main.Module;
 import cat.yoink.xanax.internal.setting.types.ListSetting;
 import cat.yoink.xanax.internal.setting.types.StateSetting;
