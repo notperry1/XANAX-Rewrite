@@ -70,6 +70,7 @@ jar {
                 "FMLCorePluginContainsFMLMod": "true",
                 "FMLCorePlugin": "cat.yoink.xanax.external.EntryPoint",
                 "ForceLoadAsMod": "true",
+                "FMLAT": "xanax_at.cfg",
         )
     }
 }

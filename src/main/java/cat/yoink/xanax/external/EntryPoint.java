@@ -51,6 +51,6 @@ public final class EntryPoint implements IFMLLoadingPlugin
     @Override
     public String getAccessTransformerClass()
     {
-        return null;
+        return Transformer.class.getName();
     }
 }
