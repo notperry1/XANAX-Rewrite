@@ -19,7 +19,7 @@ public final class EntryPoint implements IFMLLoadingPlugin
     @Mod.EventHandler
     public void initialize(FMLInitializationEvent event)
     {
-        XANAX.INSTANCE.initialize();
+        XANAX.INSTANCE.run();
     }
 
     @Override

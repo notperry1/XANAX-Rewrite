@@ -12,7 +12,7 @@ import cat.yoink.xanax.internal.util.ChatUtil;
 public final class Prefix extends Command
 {
     @Override
-    public void run(String[] args)
+    public void run(String... args)
     {
         if (args.length == 0)
         {

@@ -7,11 +7,11 @@ import cat.yoink.xanax.internal.traits.Nameable;
 /**
  * @author yoink
  */
-public enum XANAX implements Configurable, Nameable
+public enum XANAX implements Configurable, Runnable, Nameable
 {
     INSTANCE;
 
-    public void initialize()
+    public void run()
     {
         try { load(); } catch (Exception ignored) { }
         Runtime.getRuntime().addShutdownHook(new Thread(this::save));
