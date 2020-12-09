@@ -19,6 +19,8 @@ public @interface ModuleData
 
     ModuleCategory category();
 
+    String description() default "Descriptionless";
+
     int defaultBind() default Keyboard.KEY_NONE;
 
     boolean hidden() default false;

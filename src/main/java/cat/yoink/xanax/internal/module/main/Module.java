@@ -15,6 +15,7 @@ public abstract class Module implements Minecraft, Nameable, IModule
 {
     protected final String name = getClass().getAnnotation(ModuleData.class).name();
     protected final ModuleCategory category = getClass().getAnnotation(ModuleData.class).category();
+    protected final String description = getClass().getAnnotation(ModuleData.class).description();
     protected final boolean hidden = getClass().getAnnotation(ModuleData.class).hidden();
     protected int bind = getClass().getAnnotation(ModuleData.class).defaultBind();
     protected final List<Setting<?>> settings = new ArrayList<>();
@@ -45,6 +46,12 @@ public abstract class Module implements Minecraft, Nameable, IModule
     public final ModuleCategory getCategory()
     {
         return category;
+    }
+
+    @Override
+    public final String getDescription()
+    {
+        return description;
     }
 
     @Override
