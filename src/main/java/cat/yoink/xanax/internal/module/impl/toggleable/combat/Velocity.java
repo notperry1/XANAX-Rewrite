@@ -75,6 +75,4 @@ public final class Velocity extends StateModule
     {
         if (noPush.getValue()) event.setCanceled(true);
     }
-
-
 }
