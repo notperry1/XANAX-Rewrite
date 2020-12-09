@@ -4,6 +4,9 @@ import net.minecraftforge.fml.common.asm.transformers.AccessTransformer;
 
 import java.io.IOException;
 
+/**
+ * @author yoink
+ */
 public final class Transformer extends AccessTransformer
 {
     public Transformer() throws IOException

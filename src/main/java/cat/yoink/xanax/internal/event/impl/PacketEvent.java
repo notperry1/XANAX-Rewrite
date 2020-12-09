@@ -4,6 +4,9 @@ import cat.yoink.xanax.internal.event.CustomEvent;
 import net.minecraft.network.Packet;
 import net.minecraftforge.fml.common.eventhandler.Cancelable;
 
+/**
+ * @author yoink
+ */
 @Cancelable
 public final class PacketEvent extends CustomEvent<PacketEvent>
 {

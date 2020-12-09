@@ -15,6 +15,9 @@ import net.minecraft.network.play.server.SPacketExplosion;
 import net.minecraftforge.client.event.PlayerSPPushOutOfBlocksEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+/**
+ * @author yoink
+ */
 @ModuleData(name = "Velocity", category = ModuleCategory.COMBAT)
 public final class Velocity extends StateModule
 {

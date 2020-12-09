@@ -7,6 +7,9 @@ import cat.yoink.xanax.internal.module.main.ModuleData;
 import net.minecraftforge.client.event.ClientChatEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+/**
+ * @author yoink
+ */
 @ModuleData(name = "Commands", category = ModuleCategory.CLIENT, hidden = true)
 public final class Commands extends Module
 {
