@@ -6,6 +6,6 @@
   "target": "@env(DEFAULT)",
   "minVersion": "0.7.4-SNAPSHOT",
   "mixins": [
-    "MinecraftPatch"
+    "NetworkManagerPatch"
   ]
 }
