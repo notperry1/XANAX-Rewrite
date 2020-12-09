@@ -56,12 +56,6 @@ public final class NumberButton extends SettingButton
     }
 
     @Override
-    public void keyTyped(char typedChar, int keyCode)
-    {
-
-    }
-
-    @Override
     public void onGuiClosed()
     {
         dragging = false;

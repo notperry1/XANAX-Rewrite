@@ -43,22 +43,4 @@ public final class StateButton extends SettingButton
     {
         if (GuiUtil.isHover(x, y, w, h - 1, mouseX, mouseY)) setting.setValue(!setting.getValue());
     }
-
-    @Override
-    public void mouseReleased(int mouseX, int mouseY, int state)
-    {
-
-    }
-
-    @Override
-    public void keyTyped(char typedChar, int keyCode)
-    {
-
-    }
-
-    @Override
-    public void onGuiClosed()
-    {
-
-    }
 }

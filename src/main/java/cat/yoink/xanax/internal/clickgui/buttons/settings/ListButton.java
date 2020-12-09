@@ -47,22 +47,4 @@ public final class ListButton extends SettingButton
             else if (mouseButton == 1) setting.cycleBackward();
         }
     }
-
-    @Override
-    public void mouseReleased(int mouseX, int mouseY, int state)
-    {
-
-    }
-
-    @Override
-    public void keyTyped(char typedChar, int keyCode)
-    {
-
-    }
-
-    @Override
-    public void onGuiClosed()
-    {
-
-    }
 }

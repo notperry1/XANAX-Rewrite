@@ -22,4 +22,34 @@ public abstract class SettingButton implements IGui
         this.w = w;
         this.h = h;
     }
+
+    @Override
+    public void drawScreen(int mouseX, int mouseY, int windowX, int windowY, boolean self)
+    {
+
+    }
+
+    @Override
+    public void mouseClicked(int mouseX, int mouseY, int mouseButton, boolean self)
+    {
+
+    }
+
+    @Override
+    public void mouseReleased(int mouseX, int mouseY, int state)
+    {
+
+    }
+
+    @Override
+    public void keyTyped(char typedChar, int keyCode)
+    {
+
+    }
+
+    @Override
+    public void onGuiClosed()
+    {
+
+    }
 }
