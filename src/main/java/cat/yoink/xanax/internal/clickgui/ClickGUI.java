@@ -32,112 +32,112 @@ public final class ClickGUI extends GuiScreen
 
     public ClickGUI()
     {
-        final ModuleCategory[] values = ModuleCategory.values();
+        ModuleCategory[] values = ModuleCategory.values();
         for (int i = 0; i < values.length; i++)
         {
-            this.buttons.add(new CategoryButton(values[i], this.x + 10 + i * 60, this.y + 34, 60, 15, this.x, this.y));
+            buttons.add(new CategoryButton(values[i], x + 10 + i * 60, y + 34, 60, 15, x, y));
         }
     }
 
     @Override
-    public void drawScreen(final int mouseX, final int mouseY, final float partialTicks)
+    public void drawScreen(int mouseX, int mouseY, float partialTicks)
     {
-        if (this.dragging)
+        if (dragging)
         {
-            this.x = this.dragX + mouseX;
-            this.y = this.dragY + mouseY;
+            x = dragX + mouseX;
+            y = dragY + mouseY;
         }
 
-        final boolean outline = ((StateSetting) ModuleManager.INSTANCE.getModule(GuiModule.class).getSetting("Outline")).getValue();
+        boolean outline = ((StateSetting) ModuleManager.INSTANCE.getModule(GuiModule.class).getSetting("Outline")).getValue();
 
-        final float[] hue = new float[]{(float) (System.currentTimeMillis() % 11520L) / 11520.0f};
-        final Color c = new Color(Color.HSBtoRGB(hue[0], 1.0f, 1.0f));
+        float[] hue = new float[]{(float) (System.currentTimeMillis() % 11520L) / 11520.0f};
+        Color c = new Color(Color.HSBtoRGB(hue[0], 1.0f, 1.0f));
 
-        GuiUtil.drawSmoothRect(this.x, this.y, this.w, this.h, 3, new Color(52, 52, 52).getRGB(), outline, c.getRGB());
-        GuiUtil.drawRect(this.x + 10, this.y + 50, this.w - 20, this.h - 60, new Color(43, 43, 43).getRGB(), outline, c.getRGB());
-        GuiUtil.drawRect(this.x + 15, this.y + 70, this.w - 30, this.h - 85, new Color(34, 34, 34).getRGB(), outline, c.getRGB());
+        GuiUtil.drawSmoothRect(x, y, w, h, 3, new Color(52, 52, 52).getRGB(), outline, c.getRGB());
+        GuiUtil.drawRect(x + 10, y + 50, w - 20, h - 60, new Color(43, 43, 43).getRGB(), outline, c.getRGB());
+        GuiUtil.drawRect(x + 15, y + 70, w - 30, h - 85, new Color(34, 34, 34).getRGB(), outline, c.getRGB());
 
-        CategoryButton selected = this.buttons.stream().filter(CategoryButton::isSelected).findAny().orElse(null);
+        CategoryButton selected = buttons.stream().filter(CategoryButton::isSelected).findAny().orElse(null);
 
         if (selected != null)
         {
             if (selected.getTab() > 0)
             {
-                GuiUtil.drawSmoothRect(this.x + 15, this.y + 57, 10, 10, 3, new Color(34, 34, 34).getRGB(), outline, c.getRGB());
-                CFontRenderer.TEXT.drawString("<", this.x + 16, this.y + 57.5f, -1);
+                GuiUtil.drawSmoothRect(x + 15, y + 57, 10, 10, 3, new Color(34, 34, 34).getRGB(), outline, c.getRGB());
+                CFontRenderer.TEXT.drawString("<", x + 16, y + 57.5f, -1);
             }
 
             if (selected.getTab() < selected.getButtons().size() - 5)
             {
-                GuiUtil.drawSmoothRect(this.x + 355, this.y + 57, 10, 10, 3, new Color(34, 34, 34).getRGB(), outline, c.getRGB());
-                CFontRenderer.TEXT.drawString(">", this.x + 356.5f, this.y + 57.5f, -1);
+                GuiUtil.drawSmoothRect(x + 355, y + 57, 10, 10, 3, new Color(34, 34, 34).getRGB(), outline, c.getRGB());
+                CFontRenderer.TEXT.drawString(">", x + 356.5f, y + 57.5f, -1);
             }
         }
 
-        CFontRenderer.TITLE.drawCenteredString("XANAX", this.x + this.w / 2f, this.y + 5, c.getRGB());
+        CFontRenderer.TITLE.drawCenteredString("XANAX", x + w / 2f, y + 5, c.getRGB());
 
         if (((ListSetting) ModuleManager.INSTANCE.getModule(GuiModule.class).getSetting("Closing")).getValue().equals("Button") || ((ListSetting) ModuleManager.INSTANCE.getModule(GuiModule.class).getSetting("Closing")).getValue().equals("Both"))
         {
-            GuiUtil.drawSmoothRect(this.x + this.w - 15, this.y + 5, 10, 10, 3, new Color(34, 34, 34).getRGB());
-            CFontRenderer.TEXT.drawString("X", this.x + this.w - 13, this.y + 6, -1);
+            GuiUtil.drawSmoothRect(x + w - 15, y + 5, 10, 10, 3, new Color(34, 34, 34).getRGB());
+            CFontRenderer.TEXT.drawString("X", x + w - 13, y + 6, -1);
         }
 
-        if (this.dragging)
+        if (dragging)
         {
-            for (int i = 0; i < this.buttons.size(); i++)
+            for (int i = 0; i < buttons.size(); i++)
             {
-                final CategoryButton button = this.buttons.get(i);
-                button.setX(this.x + 10 + i * 60);
-                button.setY(this.y + 34);
+                CategoryButton button = buttons.get(i);
+                button.setX(x + 10 + i * 60);
+                button.setY(y + 34);
             }
         }
 
-        this.buttons.forEach(button -> button.drawScreen(mouseX, mouseY, this.x, this.y, true));
+        buttons.forEach(button -> button.drawScreen(mouseX, mouseY, x, y, true));
     }
 
     @Override
-    protected void mouseClicked(final int mouseX, final int mouseY, final int mouseButton)
+    protected void mouseClicked(int mouseX, int mouseY, int mouseButton)
     {
-        if (GuiUtil.isHover(this.x, this.y, this.w, 30, mouseX, mouseY) && mouseButton == 0)
+        if (GuiUtil.isHover(x, y, w, 30, mouseX, mouseY) && mouseButton == 0)
         {
-            this.dragging = true;
-            this.dragX = this.x - mouseX;
-            this.dragY = this.y - mouseY;
+            dragging = true;
+            dragX = x - mouseX;
+            dragY = y - mouseY;
         }
 
-        if ((((ListSetting) ModuleManager.INSTANCE.getModule(GuiModule.class).getSetting("Closing")).getValue().equals("Button") || ((ListSetting) ModuleManager.INSTANCE.getModule(GuiModule.class).getSetting("Closing")).getValue().equals("Both")) && GuiUtil.isHover(this.x + this.w - 15, this.y + 5, 10, 10, mouseX, mouseY))
+        if ((((ListSetting) ModuleManager.INSTANCE.getModule(GuiModule.class).getSetting("Closing")).getValue().equals("Button") || ((ListSetting) ModuleManager.INSTANCE.getModule(GuiModule.class).getSetting("Closing")).getValue().equals("Both")) && GuiUtil.isHover(x + w - 15, y + 5, 10, 10, mouseX, mouseY))
         {
-            this.dragging = false;
-            this.mc.displayGuiScreen(null);
+            dragging = false;
+            mc.displayGuiScreen(null);
         }
 
-        this.buttons.forEach(button -> button.mouseClicked(mouseX, mouseY, mouseButton, true));
+        buttons.forEach(button -> button.mouseClicked(mouseX, mouseY, mouseButton, true));
     }
 
     @Override
-    protected void mouseReleased(final int mouseX, final int mouseY, final int state)
+    protected void mouseReleased(int mouseX, int mouseY, int state)
     {
-        this.dragging = false;
+        dragging = false;
 
-        this.buttons.forEach(buttons -> buttons.mouseReleased(mouseX, mouseY, state));
+        buttons.forEach(buttons -> buttons.mouseReleased(mouseX, mouseY, state));
     }
 
     @Override
-    protected void keyTyped(final char typedChar, final int keyCode)
+    protected void keyTyped(char typedChar, int keyCode)
     {
         if (keyCode == 1 && ((ListSetting) ModuleManager.INSTANCE.getModule(GuiModule.class).getSetting("Closing")).getValue().equals("Keyboard") || ((ListSetting) ModuleManager.INSTANCE.getModule(GuiModule.class).getSetting("Closing")).getValue().equals("Both"))
-            this.mc.displayGuiScreen(null);
+            mc.displayGuiScreen(null);
 
-        this.buttons.forEach(button -> button.keyTyped(typedChar, keyCode));
+        buttons.forEach(button -> button.keyTyped(typedChar, keyCode));
     }
 
     @Override
     public void onGuiClosed()
     {
         ((StateModule) ModuleManager.INSTANCE.getModule(GuiModule.class)).setEnabled(false);
-        this.dragging = false;
+        dragging = false;
 
-        this.buttons.forEach(CategoryButton::onGuiClosed);
+        buttons.forEach(CategoryButton::onGuiClosed);
     }
 
     @Override
@@ -148,6 +148,6 @@ public final class ClickGUI extends GuiScreen
 
     public List<CategoryButton> getButtons()
     {
-        return this.buttons;
+        return buttons;
     }
 }

@@ -18,44 +18,44 @@ public final class ListButton extends SettingButton
 {
     private final ListSetting setting;
 
-    public ListButton(final Module module, final int x, final int y, final int w, final int h, final ListSetting setting)
+    public ListButton(Module module, int x, int y, int w, int h, ListSetting setting)
     {
         super(module, x, y, w, h);
         this.setting = setting;
     }
 
     @Override
-    public void drawScreen(final int mouseX, final int mouseY, final int windowX, final int windowY, final boolean self)
+    public void drawScreen(int mouseX, int mouseY, int windowX, int windowY, boolean self)
     {
-        final boolean outline = ((StateSetting) ModuleManager.INSTANCE.getModule(GuiModule.class).getSetting("Outline")).getValue();
+        boolean outline = ((StateSetting) ModuleManager.INSTANCE.getModule(GuiModule.class).getSetting("Outline")).getValue();
 
-        final float[] hue = new float[]{(float) (System.currentTimeMillis() % 11520L) / 11520.0f};
-        final Color c = new Color(Color.HSBtoRGB(hue[0], 1.0f, 1.0f));
+        float[] hue = new float[]{(float) (System.currentTimeMillis() % 11520L) / 11520.0f};
+        Color c = new Color(Color.HSBtoRGB(hue[0], 1.0f, 1.0f));
 
-        GuiUtil.drawRect(this.x + 5, this.y + 5, 50, 10, new Color(20, 20, 20).getRGB(), outline, c.getRGB());
-        CFontRenderer.SMALLTEXT.drawString(this.setting.getValue(), this.x + 8, this.y + 6.5f, -1);
+        GuiUtil.drawRect(x + 5, y + 5, 50, 10, new Color(20, 20, 20).getRGB(), outline, c.getRGB());
+        CFontRenderer.SMALLTEXT.drawString(setting.getValue(), x + 8, y + 6.5f, -1);
 
-        CFontRenderer.TEXT.drawString(this.setting.getName(), this.x + 59, this.y + 5.5f, -1);
+        CFontRenderer.TEXT.drawString(setting.getName(), x + 59, y + 5.5f, -1);
     }
 
     @Override
-    public void mouseClicked(final int mouseX, final int mouseY, final int mouseButton, final boolean self)
+    public void mouseClicked(int mouseX, int mouseY, int mouseButton, boolean self)
     {
-        if (GuiUtil.isHover(this.x, this.y, this.w, this.h - 1, mouseX, mouseY))
+        if (GuiUtil.isHover(x, y, w, h - 1, mouseX, mouseY))
         {
-            if (mouseButton == 0) this.setting.cycleForward();
-            else if (mouseButton == 1) this.setting.cycleBackward();
+            if (mouseButton == 0) setting.cycleForward();
+            else if (mouseButton == 1) setting.cycleBackward();
         }
     }
 
     @Override
-    public void mouseReleased(final int mouseX, final int mouseY, final int state)
+    public void mouseReleased(int mouseX, int mouseY, int state)
     {
 
     }
 
     @Override
-    public void keyTyped(final char typedChar, final int keyCode)
+    public void keyTyped(char typedChar, int keyCode)
     {
 
     }

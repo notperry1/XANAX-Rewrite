@@ -44,45 +44,45 @@ public final class CategoryButton implements IGui, Minecraft
                 .collect(Collectors.toList());
         for (int i = 0; i < modules.size(); i++)
         {
-            this.buttons.add(new ModuleButton(modules.get(i), windowX + 30 + i * 65, y + 20, 60, 15, this, windowX, windowY));
+            buttons.add(new ModuleButton(modules.get(i), windowX + 30 + i * 65, y + 20, 60, 15, this, windowX, windowY));
         }
     }
 
     @Override
-    public void drawScreen(final int mouseX, final int mouseY, final int windowX, final int windowY, final boolean self)
+    public void drawScreen(int mouseX, int mouseY, int windowX, int windowY, boolean self)
     {
         this.windowX = windowX;
         this.windowY = windowY;
 
-        if (this.selected)
+        if (selected)
         {
-            final boolean outline = ((StateSetting) ModuleManager.INSTANCE.getModule(GuiModule.class).getSetting("Outline")).getValue();
+            boolean outline = ((StateSetting) ModuleManager.INSTANCE.getModule(GuiModule.class).getSetting("Outline")).getValue();
 
-            final float[] hue = new float[]{(float) (System.currentTimeMillis() % 11520L) / 11520.0f};
-            final Color c = new Color(Color.HSBtoRGB(hue[0], 1.0f, 1.0f));
+            float[] hue = new float[]{(float) (System.currentTimeMillis() % 11520L) / 11520.0f};
+            Color c = new Color(Color.HSBtoRGB(hue[0], 1.0f, 1.0f));
 
-            if (outline) GuiUtil.drawSmoothRect(this.x - 1, this.y - 1, this.w + 2, this.h + 2, 2, c.getRGB());
-            GuiUtil.drawSmoothRect(this.x, this.y, this.w, this.h + 3, 2, new Color(43, 43, 43).getRGB());
+            if (outline) GuiUtil.drawSmoothRect(x - 1, y - 1, w + 2, h + 2, 2, c.getRGB());
+            GuiUtil.drawSmoothRect(x, y, w, h + 3, 2, new Color(43, 43, 43).getRGB());
         }
 
-        CFontRenderer.TEXT.drawString(this.category.getName(), this.x + (this.w / 2f) - (CFontRenderer.TEXT.getStringWidth(this.category.getName()) / 2f), this.y + 3, -1);
+        CFontRenderer.TEXT.drawString(category.getName(), x + (w / 2f) - (CFontRenderer.TEXT.getStringWidth(category.getName()) / 2f), y + 3, -1);
 
-        if (this.selected)
+        if (selected)
         {
             int modX = 0;
-            for (int i = 0; i < this.buttons.size(); i++)
+            for (int i = 0; i < buttons.size(); i++)
             {
-                if (i < this.tab || i > this.tab + 4)
+                if (i < tab || i > tab + 4)
                 {
-                    this.buttons.get(i).drawScreen(mouseX, mouseY, windowX, windowY, false);
+                    buttons.get(i).drawScreen(mouseX, mouseY, windowX, windowY, false);
                     continue;
                 }
 
-                final ModuleButton button = this.buttons.get(i);
+                ModuleButton button = buttons.get(i);
 
                 button.setX(windowX + 30 + modX * 65);
-                button.setY(this.y + 20);
-                this.buttons.get(i).drawScreen(mouseX, mouseY, windowX, windowY, true);
+                button.setY(y + 20);
+                buttons.get(i).drawScreen(mouseX, mouseY, windowX, windowY, true);
 
                 modX++;
             }
@@ -92,31 +92,31 @@ public final class CategoryButton implements IGui, Minecraft
     @Override
     public void mouseClicked(final int mouseX, final int mouseY, final int mouseButton, final boolean self)
     {
-        if (GuiUtil.isHover(this.x, this.y, this.w, this.h, mouseX, mouseY) && mouseButton == 0)
+        if (GuiUtil.isHover(x, y, w, h, mouseX, mouseY) && mouseButton == 0)
         {
             ClickGUI.INSTANCE.getButtons().forEach(b -> b.selected = false);
-            this.selected = true;
+            selected = true;
         }
 
-        if (mouseButton == 0 && this.selected)
+        if (mouseButton == 0 && selected)
         {
-            if (GuiUtil.isHover(this.windowX + 15, this.windowY + 57, 10, 10, mouseX, mouseY) && this.tab > 0)
-                this.tab--;
-            if (GuiUtil.isHover(this.windowX + 355, this.windowY + 57, 10, 10, mouseX, mouseY) && this.tab < this.buttons.size() - 5)
-                this.tab++;
+            if (GuiUtil.isHover(windowX + 15, windowY + 57, 10, 10, mouseX, mouseY) && tab > 0)
+                tab--;
+            if (GuiUtil.isHover(windowX + 355, windowY + 57, 10, 10, mouseX, mouseY) && tab < buttons.size() - 5)
+                tab++;
         }
 
-        if (this.selected)
+        if (selected)
         {
-            for (int i = 0; i < this.buttons.size(); i++)
+            for (int i = 0; i < buttons.size(); i++)
             {
-                if (i < this.tab || i > this.tab + 4)
+                if (i < tab || i > tab + 4)
                 {
-                    this.buttons.get(i).mouseClicked(mouseX, mouseY, mouseButton, false);
+                    buttons.get(i).mouseClicked(mouseX, mouseY, mouseButton, false);
                     continue;
                 }
 
-                this.buttons.get(i).mouseClicked(mouseX, mouseY, mouseButton, true);
+                buttons.get(i).mouseClicked(mouseX, mouseY, mouseButton, true);
             }
         }
     }
@@ -124,19 +124,19 @@ public final class CategoryButton implements IGui, Minecraft
     @Override
     public void mouseReleased(final int mouseX, final int mouseY, final int state)
     {
-        if (this.selected) this.buttons.forEach(button -> button.mouseReleased(mouseX, mouseY, state));
+        if (selected) buttons.forEach(button -> button.mouseReleased(mouseX, mouseY, state));
     }
 
     @Override
     public void keyTyped(final char typedChar, final int keyCode)
     {
-        if (this.selected) this.buttons.forEach(button -> button.keyTyped(typedChar, keyCode));
+        if (selected) buttons.forEach(button -> button.keyTyped(typedChar, keyCode));
     }
 
     @Override
     public void onGuiClosed()
     {
-        if (this.selected) this.buttons.forEach(ModuleButton::onGuiClosed);
+        if (selected) buttons.forEach(ModuleButton::onGuiClosed);
     }
 
     public void setX(final int x)
@@ -151,16 +151,16 @@ public final class CategoryButton implements IGui, Minecraft
 
     public List<ModuleButton> getButtons()
     {
-        return this.buttons;
+        return buttons;
     }
 
     public boolean isSelected()
     {
-        return this.selected;
+        return selected;
     }
 
     public int getTab()
     {
-        return this.tab;
+        return tab;
     }
 }
