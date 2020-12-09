@@ -39,7 +39,9 @@ public final class CategoryButton implements IGui, Minecraft
         this.w = w;
         this.h = h;
 
-        final List<Module> modules = ModuleManager.INSTANCE.getAllModules().stream().filter(m -> m.getCategory().equals(category)).collect(Collectors.toList());
+        final List<Module> modules = ModuleManager.INSTANCE.getAllModules().stream()
+                .filter(m -> m.getCategory().equals(category) && !m.isHidden())
+                .collect(Collectors.toList());
         for (int i = 0; i < modules.size(); i++)
         {
             this.buttons.add(new ModuleButton(modules.get(i), windowX + 30 + i * 65, y + 20, 60, 15, this, windowX, windowY));
