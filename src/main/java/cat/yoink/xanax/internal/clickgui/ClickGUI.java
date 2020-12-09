@@ -1,6 +1,7 @@
 package cat.yoink.xanax.internal.clickgui;
 
 import cat.yoink.xanax.internal.clickgui.buttons.CategoryButton;
+import cat.yoink.xanax.internal.clickgui.buttons.ModuleButton;
 import cat.yoink.xanax.internal.font.CFontRenderer;
 import cat.yoink.xanax.internal.module.ModuleCategory;
 import cat.yoink.xanax.internal.module.ModuleManager;
@@ -126,7 +127,11 @@ public final class ClickGUI extends GuiScreen
     protected void keyTyped(char typedChar, int keyCode)
     {
         if (keyCode == 1 && ((ListSetting) ModuleManager.INSTANCE.getModule(GuiModule.class).getSetting("Closing")).getValue().equals("Keyboard") || ((ListSetting) ModuleManager.INSTANCE.getModule(GuiModule.class).getSetting("Closing")).getValue().equals("Both"))
-            mc.displayGuiScreen(null);
+        {
+            boolean binding = false;
+            for (CategoryButton button : buttons) if (button.getButtons().stream().anyMatch(ModuleButton::isBinding)) binding = true;
+            if (!binding) mc.displayGuiScreen(null);
+        }
 
         buttons.forEach(button -> button.keyTyped(typedChar, keyCode));
     }

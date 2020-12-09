@@ -184,4 +184,9 @@ public final class ModuleButton implements IGui
     {
         this.y = y;
     }
+
+    public boolean isBinding()
+    {
+        return binding;
+    }
 }
