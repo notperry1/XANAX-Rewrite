@@ -18,10 +18,10 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @ModuleData(name = "Velocity", category = ModuleCategory.COMBAT)
 public final class Velocity extends StateModule
 {
-    private final NumberSetting horizontal = addSetting(new NumberSetting("Horizontal", 0, 0, 100, 1));
     private final StateSetting velocity = addSetting(new StateSetting("Velocity", true));
-    private final NumberSetting vertical = addSetting(new NumberSetting("Vertical", 0, 0, 100, 1));
+    private final NumberSetting horizontal = addSetting(new NumberSetting("Horizontal", v -> velocity.getValue(), 0, 0, 100, 1));
     private final StateSetting explosions = addSetting(new StateSetting("Explosions", true));
+    private final NumberSetting vertical = addSetting(new NumberSetting("Vertical", v -> velocity.getValue(), 0, 0, 100, 1));
     private final StateSetting fishable = addSetting(new StateSetting("Fishable", false));
     private final StateSetting noPush = addSetting(new StateSetting("NoPush", true));
 

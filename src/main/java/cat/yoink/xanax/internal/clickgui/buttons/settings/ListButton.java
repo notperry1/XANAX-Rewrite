@@ -47,4 +47,10 @@ public final class ListButton extends SettingButton
             else if (mouseButton == 1) setting.cycleBackward();
         }
     }
+
+    @Override
+    public ListSetting getSetting()
+    {
+        return setting;
+    }
 }

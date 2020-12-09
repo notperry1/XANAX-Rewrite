@@ -43,4 +43,10 @@ public final class StateButton extends SettingButton
     {
         if (GuiUtil.isHover(x, y, w, h - 1, mouseX, mouseY)) setting.setValue(!setting.getValue());
     }
+
+    @Override
+    public StateSetting getSetting()
+    {
+        return setting;
+    }
 }

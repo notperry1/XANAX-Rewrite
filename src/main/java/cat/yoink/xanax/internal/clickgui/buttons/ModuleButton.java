@@ -20,6 +20,7 @@ import org.lwjgl.input.Mouse;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author yoink
@@ -87,9 +88,10 @@ public final class ModuleButton implements IGui
         {
             doScroll(windowX, windowY, mouseX, mouseY);
 
+            List<SettingButton> visible = buttons.stream().filter(button -> button.getSetting().isVisible()).collect(Collectors.toList());
             int setI = 0;
             int setI2 = 0;
-            for (int i = 0; i < buttons.size(); i++)
+            for (int i = 0; i < visible.size(); i++)
             {
                 if (setI2 < scroll)
                 {
@@ -101,7 +103,7 @@ public final class ModuleButton implements IGui
 
                 boolean left = i % 2 == 1;
 
-                SettingButton button = buttons.get(i);
+                SettingButton button = visible.get(i);
 
                 button.x = windowX + 15 + (left ? 175 : 0);
                 button.y = windowY + 70 + setI * 20;

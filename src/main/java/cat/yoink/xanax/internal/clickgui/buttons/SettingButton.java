@@ -2,6 +2,7 @@ package cat.yoink.xanax.internal.clickgui.buttons;
 
 import cat.yoink.xanax.internal.clickgui.IGui;
 import cat.yoink.xanax.internal.module.main.Module;
+import cat.yoink.xanax.internal.setting.Setting;
 
 /**
  * @author yoink
@@ -52,4 +53,6 @@ public abstract class SettingButton implements IGui
     {
 
     }
+
+    public abstract Setting<?> getSetting();
 }

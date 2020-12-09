@@ -77,4 +77,10 @@ public final class NumberButton extends SettingButton
             else setting.setValue(diff / 96f * (maximum - minimum) + minimum);
         }
     }
+
+    @Override
+    public NumberSetting getSetting()
+    {
+        return setting;
+    }
 }
