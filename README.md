@@ -3,5 +3,5 @@
 <h4 align="center">Strong client</h4>
 
 ## To do
-- Improve the ClickGUI
+- Create HUD component system
 - Create modules and commands
